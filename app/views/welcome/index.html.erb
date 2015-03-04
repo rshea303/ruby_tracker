@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="welcomes.scss">  
+  </head>
+  <body>
+    <div class="welcome-page-content">
+      <%= render 'partials/header' %>
+     <div class="tables">
+        <div class="top-ten-table">
+          <table>
+            <h5>Top 10 Cities</h5>
+            <tr>
+              <th>Location</th>
+              <th>Jobs</th>
+            </tr>
+            <% @jobs.each do |job| %>
+              <tr>
+                <td><%= link_to "#{job[0]}", jobs_path  %></td>
+                <td><%= "#{job[1]}" %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+        <div class="top-ten-pay">
+          <table>
+            <h5>Top Pay Locations</h5>
+            <tr>
+              <th>Location</th>
+              <th>Pay</th>
+            </tr>
+            <% @jobs.each do |job| %>
+              <tr>
+                <td><%= link_to "#{job[0]}", jobs_path %></td>
+                <td><%= "#{job[2]}" %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+        <div class="top-ten-remote">
+          <table>
+            <h5>Remote Jobs</h5>
+            <tr>
+              <th>Company</th>
+            </tr>
+            <% @jobs.each do |job| %>
+              <tr>
+                <td><%= link_to "#{job[3]}", jobs_path %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
+
