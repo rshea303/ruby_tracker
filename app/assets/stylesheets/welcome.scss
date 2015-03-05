@@ -3,6 +3,7 @@ body {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
+  /* background: url('<%= asset_path("mountain.jpg")%>);  also make file welcome.css.scss.erb*/
   background-image: url("mountain.jpg");
   background-size: cover;
   font-family: Courier;

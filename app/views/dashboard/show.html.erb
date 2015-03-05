@@ -1,0 +1,6 @@
+<h1>You are authorized</h1>
+
+<%= image_tag current_user.image_url %>
+<%= current_user.nickname %>
+<%= current_user.email %>
+<%= link_to 'Logout', logout_path, method: :delete %>
