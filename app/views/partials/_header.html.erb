@@ -1,7 +1,13 @@
 <header>
-  <div class="login-button">
+    <%= flash[:alert] %>
+<div class="login-button">
+    <% if current_user && current_user.provider == 'github' %>
+    <%= current_user.nickname %>
+    <%= link_to 'Logout', session_path, method: :delete %>
+  <% else %>
     <%= link_to "Login with Github", "/auth/github" %>
+  <% end %>
   </div>
   <h1><%= link_to "Rails Trail", root_path %></h1>
   <h3>Tracking Ruby on Rails Jobs Nationwide</h3>
-</header>header
+</header>

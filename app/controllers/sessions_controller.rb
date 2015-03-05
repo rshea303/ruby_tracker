@@ -3,15 +3,26 @@ class SessionsController < ApplicationController
     @user = User.find_or_create_from_auth(request.env['omniauth.auth'])
     if @user
       session[:user_id] = @user.id
-      redirect_to dashboard_path
-    else
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 
   def destroy
-    session.clear
-
+    session[:user_id] = nil
     redirect_to root_path
+    flash[:alert] = "Goodbye!"
   end
 end
+
+# As a visitor
+# When I login using github
+# Then I should be on the home page
+# And I should see a link for 'Logout'
+# And I should not see a link for 'Login'
+
+# As a visitor
+# When I attempt to login using github
+# And it is not successful
+# Then I should be on the home page
+# And I should see a link for 'Login'
+# And I should not see a link for 'Logout'
